@@ -1,0 +1,89 @@
+1)substr() funtion is used to fetch part of the string
+2) It has two syntax
+substr(source,pos) pos suggests from where it should starts fetching substring
+substr(source,pos,len) len suggests how much length of substring to fetch
+3)We can use both positive and negative indexing
+Pos starts on left with 1
+neg starts on right with -1
+
+select substr('good morning',1) from dual;
+SUBSTR('GOOD
+------------
+good morning
+select substr('good morning',5) from dual;
+SUBSTR('
+--------
+ morning
+select substr(ename,-1) from emp;
+S
+-
+N
+D
+S
+N
+E
+K
+T
+G
+R
+S
+S
+D
+R
+select substr(ename,-4) from emp;
+
+SUBS
+----
+LLEN
+WARD
+ONES
+RTIN
+LAKE
+LARK
+COTT
+KING
+RNER
+DAMS
+AMES
+FORD
+LLER
+ select substr(ename,1,5) from emp;
+SUBST
+-----
+ALLEN
+WARD
+JONES
+MARTI
+BLAKE
+CLARK
+SCOTT
+KING
+TURNE
+ADAMS
+JAMES
+FORD
+MILLE
+select substr('good morning',6,4) from dual;
+
+SUBS
+----
+morn
+select substr('good morning',5,6) from dual;
+SUBSTR
+------
+ morni
+select substr('good morning',5,7) from dual;
+SUBSTR(
+-------
+ mornin
+select substr('good morning',5,8) from dual;
+SUBSTR('
+--------
+ morning
+
+ select substr('good morning',5,9) from dual;
+
+
+SUBSTR('
+--------
+ morning
