@@ -1,0 +1,44 @@
+1)Trim function is used to Remove extra spaces at start and end of string
+2) It can also be used to remove first or the last character
+3) we cannot remove the middle characters and we cannot remove multiple characters at once
+
+select trim(' hiii  ') from dual;
+TRIM
+----
+hiii
+select trim('h' from 'hello') from dual;
+TRIM
+----
+ello
+select trim('o' from 'hello') from dual;
+TRIM
+----
+hell
+select trim('l' from 'hello') from dual;
+TRIM(
+-----
+hello
+select trim('hi' from 'hello') from dual;
+trim set should have only one character
+
+
+select trim(1234) from dual;
+TRIM
+----
+1234
+select trim(1 from 1234) from dual;
+TRI
+---
+234
+
+select trim('  12-feb-2024' ) from dual;
+TRIM('12-FE
+-----------
+12-feb-2024
+select trim('1' from '12-feb-2024') from dual;
+TRIM('1'FR
+----------
+2-feb-2024
+
+
+
