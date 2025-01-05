@@ -1,0 +1,47 @@
+ii)upper and lower functions
+Works for numeric, varchar and date but used mostly for varchar
+
+select upper('hi this is jayanth') from dual;
+UPPER('HITHISISJAY
+------------------
+HI THIS IS JAYANTH
+
+select lower('good Morning') from dual;
+LOWER('GOODM
+------------
+good morning
+
+select ename,lower(ename) from emp;
+ENAME      LOWER(ENAM
+---------- ----------
+ALLEN      allen
+WARD       ward
+JONES      jones
+MARTIN     martin
+BLAKE      blake
+CLARK      clark
+SCOTT      scott
+KING       king
+TURNER     turner
+ADAMS      adams
+JAMES      james
+FORD       ford
+MILLER     miller
+
+select upper(30) from dual;
+
+UP
+--
+30
+
+select upper('12-jan-2024') from dual;
+UPPER('12-J
+-----------
+12-JAN-2024
+
+select lower('12-jan-2024') from dual;
+
+LOWER('12-J
+-----------
+12-jan-2024
+
