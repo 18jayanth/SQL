@@ -1,0 +1,28 @@
+
+
+
+i)Converting all date formats into sql date format
+
+select to_date('01-jan-2024','dd/mm/yyyy') from dual;
+TO_DATE('
+---------
+01-JAN-24
+select to_date('01-03-2023','mm/dd/yyyy') from dual;
+TO_DATE('
+---------
+03-JAN-23
+select to_date('01-03-2023','yy/dd/mm') from dual;
+not a valid month
+select to_date('07-24','mm/yy') from dual;
+TO_DATE('
+---------
+01-JUL-24
+ select to_date('07-24','dd/yy') from dual;
+TO_DATE('
+---------
+07-JAN-24
+select to_date('07-24','mm/dd') from dual;
+
+TO_DATE('
+---------
+24-JUL-25
