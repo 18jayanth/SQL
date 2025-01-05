@@ -31,6 +31,7 @@ select next_day('31-jan-2025','monday') from dual;
 NEXT_DAY(
 ---------
 03-FEB-25
+
 vii)months_between:It will give difference between months provided
 
 select months_between('24-dec-2024','01-jan-2025') from dual;
@@ -54,6 +55,8 @@ select round(months_between(sysdate,'01-jan-2024'),2) from dual;
 ROUND(MONTHS_BETWEEN(SYSDATE,'01-JAN-2024'),2)
 ----------------------------------------------
                                          12.16
+
+Q) Write a Query To Display number of months a employee worked in the company
 select ename,months_between(sysdate,hiredate) from emp;
 ENAME      MONTHS_BETWEEN(SYSDATE,HIREDATE)
 ---------- --------------------------------
@@ -71,6 +74,7 @@ JAMES                            517.097194
 FORD                             517.097194
 MILLER                           515.452033
 
+Q) Write a Query To Display number of years a employee worked in the company
 select ename,months_between(sysdate,hiredate)/12 from emp;
 ENAME      MONTHS_BETWEEN(SYSDATE,HIREDATE)/12
 ---------- -----------------------------------
