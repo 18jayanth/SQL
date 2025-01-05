@@ -1,3 +1,4 @@
+This Function is used to convert all the characters into either Uppercase using upper() or  lowercase using  lower()
 ii)upper and lower functions
 Works for numeric, varchar and date but used mostly for varchar
 
