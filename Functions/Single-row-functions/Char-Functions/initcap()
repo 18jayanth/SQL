@@ -1,0 +1,20 @@
+1)initcap function converts first letter and letter after every special character to Capital rest to small
+2) This works for both varchar and date
+
+select initcap(1234) from dual;
+INIT
+----
+1234
+select initcap('01-jAN-2024') from dual;
+INITCAP('01
+-----------
+01-Jan-2024
+
+select initcap('hello world') from dual;
+INITCAP('HE
+-----------
+Hello World
+select initcap('hi how@r%u') from dual;
+INITCAP('H
+----------
+Hi How@R%U
