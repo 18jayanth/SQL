@@ -1,0 +1,88 @@
+1) instr() function is used to find the occurence of a character in a string
+
+2)It has Three Syntax i)instr(source,substr) it will fetch the index of 1st occurence of substr,Default pos=1
+ii)instr(source,substr,pos) It will search for index of the substr from pos onwards
+iii)instr(source,subtr,pos,occur) it will search for index of particuar occerence of substring from position pos
+3) It always returns postive indexing
+
+#First Syntax
+select instr('good morning','g') from dual;
+INSTR('GOODMORNING','G')
+------------------------
+                       1
+
+select instr('good morning','m') from dual;
+INSTR('GOODMORNING','M')
+------------------------
+                       6
+select instr('good morning','G') from dual;
+INSTR('GOODMORNING','G')
+------------------------
+                       0
+select ename,instr(ename,'A') from emp;
+ENAME      INSTR(ENAME,'A')
+---------- ----------------
+ALLEN                     1
+WARD                      2
+JONES                     0
+MARTIN                    2
+BLAKE                     3
+CLARK                     3
+SCOTT                     0
+KING                      0
+TURNER                    0
+ADAMS                     1
+JAMES                     2
+FORD                      0
+MILLER                    0
+
+#Second Syntax
+
+select instr('good morning','g',1) from dual;
+INSTR('GOODMORNING','G',1)
+--------------------------
+                         1
+select instr('good morning','g',2) from dual;
+INSTR('GOODMORNING','G',2)
+--------------------------
+                        12
+
+select instr('good morning','n',-3) from dual;
+INSTR('GOODMORNING','N',-3)
+---------------------------
+                          9
+select instr('good morning','o',-5) from dual; #It Returns 7 even though -6 is short to represent
+INSTR('GOODMORNING','O',-5)
+---------------------------
+                          7
+
+#Third Syntax
+select  instr('good morning','g',1,1) from dual;
+INSTR('GOODMORNING','GO',1,1)
+-----------------------------
+                            1
+ select instr('good morning','go',1,2) from dual;
+INSTR('GOODMORNING','GO',1,2)
+-----------------------------
+                            0
+ select  instr('good morning','o',7,1) from dual;
+INSTR('GOODMORNING','O',7,1)
+----------------------------
+                           7
+ select  instr('good morning','o',7,2) from dual;
+INSTR('GOODMORNING','O',7,2)
+----------------------------
+                           0
+ select  instr('good morning','o',-7,3) from dual;
+INSTR('GOODMORNING','O',-7,3)
+-----------------------------
+                            0
+select  instr('good morning','mo',7,1) from dual;
+INSTR('GOODMORNING','MO',7,1)
+-----------------------------
+                            0
+select  instr('good morning','mo',1,1) from dual;
+INSTR('GOODMORNING','MO',1,1)
+-----------------------------
+                            6
+
