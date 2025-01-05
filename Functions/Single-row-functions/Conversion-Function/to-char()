@@ -1,0 +1,268 @@
+i)to_char function converts a DATE value into a string in the desired format.
+Common Format Models:
+
+YYYY: Four-digit year.
+MM: Two-digit month.
+MON: Three-letter month abbreviation.
+MONTH: Full month name (padded with spaces unless FM is used).
+DD: Day of the month.
+HH24: Hour in 24-hour format.
+MI: Minutes.
+SS: Seconds.
+
+
+ii)Converts a NUMBER value into a string with the desired format.
+TO_CHAR(number_value, 'format_model')
+SELECT TO_CHAR(12345.678, '99999.99') AS formatted_number FROM dual;  12345.68
+Common Format Models:
+9: Placeholder for a digit.
+0: Adds leading or trailing zeros.
+.: Specifies the decimal point position.
+,: Adds a comma for thousands separators.
+$: Adds a currency symbol.
+
+select hiredate,to_char(hiredate,'yyyy') from emp;
+
+HIREDATE  TO_C
+--------- ----
+20-FEB-81 1981
+22-FEB-81 1981
+02-APR-81 1981
+28-SEP-81 1981
+01-MAY-81 1981
+09-JUN-81 1981
+19-APR-87 1987
+17-NOV-81 1981
+08-SEP-81 1981
+23-MAY-87 1987
+03-DEC-81 1981
+03-DEC-81 1981
+23-JAN-82 1982
+select hiredate,to_char(hiredate,'yyy') from emp;
+
+HIREDATE  TO_
+--------- ---
+20-FEB-81 981
+22-FEB-81 981
+02-APR-81 981
+28-SEP-81 981
+01-MAY-81 981
+09-JUN-81 981
+19-APR-87 987
+17-NOV-81 981
+08-SEP-81 981
+23-MAY-87 987
+03-DEC-81 981
+03-DEC-81 981
+23-JAN-82 982
+select hiredate,to_char(hiredate,'yy') from emp;
+
+HIREDATE  TO
+--------- --
+20-FEB-81 81
+22-FEB-81 81
+02-APR-81 81
+28-SEP-81 81
+01-MAY-81 81
+09-JUN-81 81
+19-APR-87 87
+17-NOV-81 81
+08-SEP-81 81
+23-MAY-87 87
+03-DEC-81 81
+03-DEC-81 81
+23-JAN-82 82
+
+select hiredate,to_char(hiredate,'y') from emp;
+
+HIREDATE  T
+--------- -
+20-FEB-81 1
+22-FEB-81 1
+02-APR-81 1
+28-SEP-81 1
+01-MAY-81 1
+09-JUN-81 1
+19-APR-87 7
+17-NOV-81 1
+08-SEP-81 1
+23-MAY-87 7
+03-DEC-81 1
+03-DEC-81 1
+23-JAN-82 2
+
+select hiredate,to_char(hiredate,'mm') from emp;
+
+HIREDATE  TO
+--------- --
+20-FEB-81 02
+22-FEB-81 02
+02-APR-81 04
+28-SEP-81 09
+01-MAY-81 05
+09-JUN-81 06
+19-APR-87 04
+17-NOV-81 11
+08-SEP-81 09
+23-MAY-87 05
+03-DEC-81 12
+03-DEC-81 12
+23-JAN-82 01
+
+select hiredate,to_char(hiredate,'mon') from emp;
+HIREDATE  TO_
+--------- ---
+20-FEB-81 feb
+22-FEB-81 feb
+02-APR-81 apr
+28-SEP-81 sep
+01-MAY-81 may
+09-JUN-81 jun
+19-APR-87 apr
+17-NOV-81 nov
+08-SEP-81 sep
+23-MAY-87 may
+03-DEC-81 dec
+03-DEC-81 dec
+23-JAN-82 jan
+
+select hiredate,to_char(hiredate,'month') from emp;
+HIREDATE  TO_CHAR(H
+--------- ---------
+20-FEB-81 february
+22-FEB-81 february
+02-APR-81 april
+28-SEP-81 september
+01-MAY-81 may
+09-JUN-81 june
+19-APR-87 april
+17-NOV-81 november
+08-SEP-81 september
+23-MAY-87 may
+03-DEC-81 december
+03-DEC-81 december
+23-JAN-82 january
+
+select hiredate,to_char(hiredate,'d') from emp;
+
+HIREDATE  T
+--------- -
+20-FEB-81 6
+22-FEB-81 1
+02-APR-81 5
+28-SEP-81 2
+01-MAY-81 6
+09-JUN-81 3
+19-APR-87 1
+17-NOV-81 3
+08-SEP-81 3
+23-MAY-87 7
+03-DEC-81 5
+03-DEC-81 5
+23-JAN-82 7
+
+select hiredate,to_char(hiredate,'dd') from emp;
+
+HIREDATE  TO
+--------- --
+20-FEB-81 20
+22-FEB-81 22
+02-APR-81 02
+28-SEP-81 28
+01-MAY-81 01
+09-JUN-81 09
+19-APR-87 19
+17-NOV-81 17
+08-SEP-81 08
+23-MAY-87 23
+03-DEC-81 03
+03-DEC-81 03
+23-JAN-82 23
+
+select hiredate,to_char(hiredate,'dy') from emp;
+
+HIREDATE  TO_
+--------- ---
+20-FEB-81 fri
+22-FEB-81 sun
+02-APR-81 thu
+28-SEP-81 mon
+01-MAY-81 fri
+09-JUN-81 tue
+19-APR-87 sun
+17-NOV-81 tue
+08-SEP-81 tue
+23-MAY-87 sat
+03-DEC-81 thu
+03-DEC-81 thu
+23-JAN-82 sat
+
+select hiredate,to_char(hiredate,'day') from emp;
+
+HIREDATE  TO_CHAR(H
+--------- ---------
+20-FEB-81 friday
+22-FEB-81 sunday
+02-APR-81 thursday
+28-SEP-81 monday
+01-MAY-81 friday
+09-JUN-81 tuesday
+19-APR-87 sunday
+17-NOV-81 tuesday
+08-SEP-81 tuesday
+23-MAY-87 saturday
+03-DEC-81 thursday
+03-DEC-81 thursday
+23-JAN-82 saturday
+
+select hiredate,to_char(hiredate,'dd/mm/yyyy') from emp;
+
+HIREDATE  TO_CHAR(HI
+--------- ----------
+20-FEB-81 20/02/1981
+22-FEB-81 22/02/1981
+02-APR-81 02/04/1981
+28-SEP-81 28/09/1981
+01-MAY-81 01/05/1981
+09-JUN-81 09/06/1981
+19-APR-87 19/04/1987
+17-NOV-81 17/11/1981
+08-SEP-81 08/09/1981
+23-MAY-87 23/05/1987
+03-DEC-81 03/12/1981
+03-DEC-81 03/12/1981
+23-JAN-82 23/01/1982
+
+select hiredate,to_char(hiredate,'d/mon/yyyy') from emp;
+HIREDATE  TO_CHAR(HI
+--------- ----------
+20-FEB-81 6/feb/1981
+22-FEB-81 1/feb/1981
+02-APR-81 5/apr/1981
+28-SEP-81 2/sep/1981
+01-MAY-81 6/may/1981
+09-JUN-81 3/jun/1981
+19-APR-87 1/apr/1987
+17-NOV-81 3/nov/1981
+08-SEP-81 3/sep/1981
+23-MAY-87 7/may/1987
+03-DEC-81 5/dec/1981
+03-DEC-81 5/dec/1981
+23-JAN-82 7/jan/1982
+
+select hiredate,to_char(hiredate,'hh:mm:ss') from emp;
+HIREDATE  TO_CHAR(
+--------- --------
+20-FEB-81 12:02:00
+22-FEB-81 12:02:00
+02-APR-81 12:04:00
+28-SEP-81 12:09:00
+01-MAY-81 12:05:00
+09-JUN-81 12:06:00
+19-APR-87 12:04:00
+17-NOV-81 12:11:00
+08-SEP-81 12:09:00
+23-MAY-87 12:05:00
+03-DEC-81 12:12:00
+03-DEC-81 12:12:00
+23-JAN-82 12:01:00
