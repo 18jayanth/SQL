@@ -1,0 +1,87 @@
+CHAR FUNCTIONS
+1) It works on single rows and give mutiple answers for the rows on the table
+
+i)Length()
+WE can use length on numeric,varchar and date mostly used for date
+select length('hello') from dual;
+LENGTH('HELLO')
+---------------
+              5
+select length('   hello  ') from dual;
+LENGTH('HELLO')
+---------------
+             10
+select length('10-JAN-2024') FROM DUAL;
+LENGTH('10-JAN-2024')
+---------------------
+                   11
+SELECT LENGTH(1234) FROM DUAL;
+LENGTH(1234)
+------------
+           4
+
+SELECT LENGTH(ENAME)  FROM EMP;
+LENGTH(ENAME)
+-------------
+            5
+            4
+            5
+            6
+            5
+            5
+            5
+            4
+            6
+            5
+            5
+            4
+            6
+SELECT HIREDATE,LENGTH(HIREDATE) FROM EMP;
+HIREDATE  LENGTH(HIREDATE)
+--------- ----------------
+20-FEB-81                9
+22-FEB-81                9
+02-APR-81                9
+28-SEP-81                9
+01-MAY-81                9
+09-JUN-81                9
+19-APR-87                9
+17-NOV-81                9
+08-SEP-81                9
+23-MAY-87                9
+03-DEC-81                9
+03-DEC-81                9
+23-JAN-82                9
+SELECT SAL,LENGTH(SAL) FROM EMP;
+ SAL LENGTH(SAL)
+---- -----------
+1600           4
+1250           4
+2975           4
+1250           4
+2850           4
+2450           4
+3000           4
+5000           4
+1500           4
+1100           4
+ 950           3
+3000           4
+1300           4
+SELECT ENAME,LENGTH(ENAME) FROM EMP;
+ENAME      LENGTH(ENAME)
+---------- -------------
+ALLEN                  5
+WARD                   4
+JONES                  5
+MARTIN                 6
+BLAKE                  5
+CLARK                  5
+SCOTT                  5
+KING                   4
+TURNER                 6
+ADAMS                  5
+JAMES                  5
+FORD                   4
+MILLER                 6
+
