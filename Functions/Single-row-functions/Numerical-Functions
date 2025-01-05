@@ -1,6 +1,7 @@
 NUMBER FUNCTIONS
 1) it will work on only single row and for a table we can get multiple answers
 2) This will work only for NUmerical Datatypes
+
 i)Mod()
  select mod(12,3) from dual; 
  MOD(12,3)
@@ -168,3 +169,15 @@ select round(-3.5000) from dual;
 ROUND(-3.5000)
 --------------
             -4
+select round(123.899,2) from dual;
+ROUND(123.899,2)
+----------------
+           123.9
+select round(123.84,2) from dual;
+ROUND(123.84,2)
+---------------
+         123.84
+select round(123.4563,3) from dual;
+ROUND(123.4563,3)
+-----------------
+          123.456
