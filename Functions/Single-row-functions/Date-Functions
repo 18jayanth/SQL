@@ -1,0 +1,89 @@
+1)Date Functions
+
+i)sysdate:It Will give current date from oracle system
+select sysdate from dual;
+
+ii)current_date:It Will give current date from our local system
+select current_date from dual;
+
+iii)sessiontimezone:It Will give time zone of our location
+select sessiontimezone from dual;
+
+iv)current_timestamp:It will provide date,timzone,time 
+select current_timestamp from dual;
+
+v)last_day:It will give last day of the month of the provided date
+select last_day('01-jan-2024') from dual;
+LAST_DAY(
+---------
+31-JAN-24
+select last_day('01-feb-2025') from dual;
+LAST_DAY(
+---------
+28-FEB-25
+
+vi)next_day:It will give the date when will the next week-day will happen in the year
+select next_day('01-jan-2024','mon') from dual;
+NEXT_DAY(
+---------
+08-JAN-24
+select next_day('31-jan-2025','monday') from dual;
+NEXT_DAY(
+---------
+03-FEB-25
+vii)months_between:It will give difference between months provided
+
+select months_between('24-dec-2024','01-jan-2025') from dual;
+MONTHS_BETWEEN('24-DEC-2024','01-JAN-2025')
+-------------------------------------------
+                                 -.25806452
+select months_between('01-dec-2024','01-jan-2024') from dual;
+MONTHS_BETWEEN('01-DEC-2024','01-JAN-2024')
+-------------------------------------------
+                                         11
+select months_between(sysdate,'01-jan-2024') from dual;
+MONTHS_BETWEEN(SYSDATE,'01-JAN-2024')
+-------------------------------------
+                           12.1614326
+select months_between(sysdate,'01-jan-2024') from dual;
+MONTHS_BETWEEN(SYSDATE,'01-JAN-2024')   #time is changing
+-------------------------------------
+                           12.1614363
+
+select round(months_between(sysdate,'01-jan-2024'),2) from dual;
+ROUND(MONTHS_BETWEEN(SYSDATE,'01-JAN-2024'),2)
+----------------------------------------------
+                                         12.16
+select ename,months_between(sysdate,hiredate) from emp;
+ENAME      MONTHS_BETWEEN(SYSDATE,HIREDATE)
+---------- --------------------------------
+ALLEN                            526.548807
+WARD                             526.484291
+JONES                            525.129452
+MARTIN                           519.290743
+BLAKE                             524.16171
+CLARK                            522.903646
+SCOTT                            452.581065
+KING                             517.645581
+TURNER                           519.935904
+ADAMS                            451.452033
+JAMES                            517.097194
+FORD                             517.097194
+MILLER                           515.452033
+
+select ename,months_between(sysdate,hiredate)/12 from emp;
+ENAME      MONTHS_BETWEEN(SYSDATE,HIREDATE)/12
+---------- -----------------------------------
+ALLEN                               43.8790683
+WARD                                43.8736919
+JONES                               43.7607887
+MARTIN                              43.2742296
+BLAKE                               43.6801436
+CLARK                               43.5753048
+SCOTT                               37.7150898
+KING                                43.1371328
+TURNER                               43.327993
+ADAMS                               37.6210038
+JAMES                               43.0914339
+FORD                                43.0914339
+MILLER                              42.9543371
