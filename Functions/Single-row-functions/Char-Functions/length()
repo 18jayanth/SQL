@@ -1,8 +1,8 @@
-CHAR FUNCTIONS
-1) It works on single rows and give mutiple answers for the rows on the table
-
-i)Length()
+This Function is used to find the length of the object including spaces or special caharcters 
+It works on single rows and give mutiple answers for the rows on the table
 WE can use length on numeric,varchar and date mostly used for date
+
+
 select length('hello') from dual;
 LENGTH('HELLO')
 ---------------
