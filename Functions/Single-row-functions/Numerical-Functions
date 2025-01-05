@@ -1,0 +1,170 @@
+NUMBER FUNCTIONS
+1) it will work on only single row and for a table we can get multiple answers
+2) This will work only for NUmerical Datatypes
+i)Mod()
+ select mod(12,3) from dual; 
+ MOD(12,3)
+----------
+         0
+ select mod(sal,3) from emp; 
+
+MOD(SAL,3)
+----------
+         1
+         2
+         2
+         2
+         0
+         2
+         0
+         2
+         0
+         2
+         2
+         0
+         1
+select mod(ename,3) from emp;
+invalid number
+
+ii)abs()
+ select abs(30.2) from dual;
+ ABS(30.2)
+----------
+      30.2
+select abs(-30.25) from dual;
+ABS(-30.25)
+-----------
+      30.25
+select abs(sal) from emp;
+ ABS(SAL)
+---------
+     1600
+     1250
+     2975
+     1250
+     2850
+     2450
+     3000
+     5000
+     1500
+     1100
+      950
+     3000
+     1300
+select abs(ename) from emp;
+ invalid number
+
+iii)sqrt()
+
+ select sqrt(100) from dual;
+SQRT(100)
+---------
+       10
+
+select sqrt(-20) from dual;
+argument '-20' is out of range
+
+select sqrt(30.26) from dual;
+SQRT(30.26)
+-----------
+ 5.50090902
+
+select sqrt(sal) from emp;
+ SQRT(SAL)
+----------
+        40
+35.3553391
+54.5435606
+35.3553391
+53.3853913
+49.4974747
+54.7722558
+70.7106781
+38.7298335
+33.1662479
+  30.82207
+54.7722558
+36.0555128
+
+iv)power()
+select power(5,3) from dual;
+POWER(5,3)
+----------
+       125
+
+ select power(-5,3) from dual;
+POWER(-5,3)
+-----------
+       -125
+
+ select power(sal,4) from emp;
+POWER(SAL,4)
+------------
+  6.5536E+12
+  2.4414E+12
+  7.8334E+13
+  2.4414E+12
+  6.5975E+13
+  3.6030E+13
+  8.1000E+13
+  6.2500E+14
+  5.0625E+12
+  1.4641E+12
+  8.1451E+11
+  8.1000E+13
+  2.8561E+12
+
+v)floor()
+ select floor(3.999999) from dual;
+FLOOR(3.999999)
+---------------
+              3
+ select floor(4.0001) from dual;
+FLOOR(4.0001)
+-------------
+            4
+select floor(-3.9999) from dual;
+FLOOR(-3.9999)
+--------------
+            -4
+
+select floor(-4.00001) from dual;
+FLOOR(-4.00001)
+---------------
+             -5
+
+vi)ceil
+ select ceil(3.00001) from dual;
+CEIL(3.00001)
+-------------
+            4
+select ceil(3.999999) from dual;
+CEIL(3.999999)
+--------------
+             4
+ select ceil(-3.0001) from dual;
+CEIL(-3.0001)
+-------------
+           -3
+select ceil(-3.99999) from dual;
+CEIL(-3.99999)
+--------------
+            -3
+
+vii)round
+select round(3.49999) from dual;
+ROUND(3.49999)
+--------------
+             3
+select round(3.5000) from dual;
+ROUND(3.5000)
+-------------
+            4
+select round(-3.4999) from dual;
+ROUND(-3.4999)
+--------------
+            -3
+select round(-3.5000) from dual;
+ROUND(-3.5000)
+--------------
+            -4
