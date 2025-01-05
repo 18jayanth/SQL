@@ -1,0 +1,77 @@
+1)Replace function is used to replace old string with a new string
+2) It can also be used to delete existing characters
+
+syntax: replace(source,oldchar,newchar)
+replace(source,deletechar)
+
+select replace('apple','a','q') from dual;
+REPLA
+-----
+qpple
+
+select replace('apple','b','q') from dual;
+REPLA
+-----
+apple
+
+select replace('good morning','good','bad') from dual;
+REPLACE('GO
+-----------
+bad morning
+
+select replace('good morning','good') from dual;
+REPLACE(
+--------
+ morning
+
+select replace(ename,'A','Z') from emp;
+REPLACE(EN
+----------
+ZLLEN
+WZRD
+JONES
+MZRTIN
+BLZKE
+CLZRK
+SCOTT
+KING
+TURNER
+ZDZMS
+JZMES
+FORD
+MILLER
+
+select replace(empno,7,'E') from emp;
+REPLACE(EMPNO,7,'E')
+-----------------------
+E499
+E521
+E566
+E654
+E698
+EE82
+EE88
+E839
+E844
+E8E6
+E900
+E902
+E934
+
+select replace(empno,7) from emp;
+REPLACE(EMPNO,7)
+------------------
+499
+521
+566
+654
+698
+82
+88
+839
+844
+86
+900
+902
+934
+
