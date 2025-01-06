@@ -1,0 +1,17 @@
+Q1)Write  a Query To display half of commission of employee whose name starts with vowel using functions
+select ename,round(comm/2) from emp where substr(ename,1,1) in ('A','E','I','O','U');
+ENAME      ROUND(COMM/2)
+---------- -------------
+ALLEN                150
+ADAMS
+
+Q2))Write  a Query To display last record of employee table
+select * from (
+select * from emp order by rownum desc) where rownum=1;
+EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+----- ---------- --------- ---------- --------- ---------- ---------- ----------
+ 7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+Q3)Write a Query to display working location of employee who is getting 8th highest salary
+select loc from dept=(
+
