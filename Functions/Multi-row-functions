@@ -1,1 +1,85 @@
+1)Multi Row Functions Computes on Multiple Row and Give Single Answer
+2)Single Row Functions can be used in select clause,where clause,group by clause,having clause etc;
+Multi Row Functions can be usedin select clause,group by clause,having clause etc but not inside where clause
 
+i)MAX()
+select ename,max(sal) from emp;
+not a single-group group function
+
+select max(sal) from emp;
+
+ MAX(SAL)
+---------
+     5000
+	
+select max(hiredate) from emp;
+MAX(HIRED
+---------
+23-MAY-87
+
+select max(ename) from emp;
+MAX(ENAME)
+----------
+WARD
+
+ii)MIN()
+select max(sal) from emp;
+MAX(SAL)
+---------
+     950
+
+select min(hiredate) from emp;
+MAX(HIRED
+---------
+20-FEB-81
+
+select min(ename) from emp;
+MIN(ENAME)
+----------
+ADAMS
+
+iii)sum()
+select sum(ename) from emp;
+ invalid number
+
+select sum(hiredate) from emp;
+inconsistent datatypes: expected NUMBER got DATE
+
+select sum(sal) from emp;
+ SUM(SAL)
+---------
+    28225
+	
+iv)avg()
+select avg(ename) from emp;
+invalid number
+
+select avg(hiredate) from emp;
+inconsistent datatypes: expected NUMBER got DATE
+
+select avg(sal) from emp;
+AVG(SAL)
+--------
+2171.15385
+
+v)count()
+ select count(empno) from emp;
+ COUNT(EMPNO)
+------------
+          13
+		  
+select count(sal) from emp;	  
+COUNT(SAL)
+------------
+          13
+		  
+select count(rownum) from emp;
+COUNT(ROWNUM)
+------------
+          13 
+
+select count(*) from emp;
+COUNT(*)
+------------
+          13 
+		  
