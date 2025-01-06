@@ -1,0 +1,178 @@
+1) Inner Join needs a connection between tow tables  i.e common column is mandatory
+2)Inner join is a combination of Equi Join
+3)In Inner join  we can change the operators (=,!=,>,<,<=,>=)
+Example Use Case:
+
+When you only need data that exists in both tables.
+If the requirement is to fetch only matching rows → Use INNER JOIN.
+Is matching data sufficient? → Use INNER JOIN.
+
+INNER JOIN Examples
+Find employees and their departments.
+List orders and their corresponding customers.
+Show students and the courses they enrolled in.
+Fetch sales and corresponding sales representatives.
+Display products and their respective suppliers.
+
+syntax:select table1.colname,table2.colname..... from table1 inner join table2 on table1.commcol=table2.commcol;
+       select table1.colname,table2.colname..... from table1  join table2 on table1.commcol=table2.commcol;
+
+
+select e.ename,e.deptno,d.dname,d.deptno from emp e inner join dept d on e.deptno=d.deptno ;
+ENAME          DEPTNO DNAME              DEPTNO
+---------- ---------- -------------- ----------
+ALLEN              30 SALES                  30
+WARD               30 SALES                  30
+JONES              20 RESEARCH               20
+MARTIN             30 SALES                  30
+BLAKE              30 SALES                  30
+CLARK              10 ACCOUNTING             10
+SCOTT              20 RESEARCH               20
+KING               10 ACCOUNTING             10
+TURNER             30 SALES                  30
+ADAMS              20 RESEARCH               20
+JAMES              30 SALES                  30
+FORD               20 RESEARCH               20
+MILLER             10 ACCOUNTING             10
+
+select e.ename,e.deptno,d.dname,d.deptno from emp e inner join dept d on e.deptno!=d.deptno;
+ENAME          DEPTNO DNAME              DEPTNO
+---------- ---------- -------------- ----------
+ALLEN              30 ACCOUNTING             10
+WARD               30 ACCOUNTING             10
+JONES              20 ACCOUNTING             10
+MARTIN             30 ACCOUNTING             10
+BLAKE              30 ACCOUNTING             10
+SCOTT              20 ACCOUNTING             10
+TURNER             30 ACCOUNTING             10
+ADAMS              20 ACCOUNTING             10
+JAMES              30 ACCOUNTING             10
+FORD               20 ACCOUNTING             10
+ALLEN              30 RESEARCH               20
+WARD               30 RESEARCH               20
+MARTIN             30 RESEARCH               20
+BLAKE              30 RESEARCH               20
+CLARK              10 RESEARCH               20
+KING               10 RESEARCH               20
+TURNER             30 RESEARCH               20
+JAMES              30 RESEARCH               20
+MILLER             10 RESEARCH               20
+JONES              20 SALES                  30
+CLARK              10 SALES                  30
+SCOTT              20 SALES                  30
+KING               10 SALES                  30
+ADAMS              20 SALES                  30
+FORD               20 SALES                  30
+MILLER             10 SALES                  30
+ALLEN              30 OPERATIONS             40
+WARD               30 OPERATIONS             40
+JONES              20 OPERATIONS             40
+MARTIN             30 OPERATIONS             40
+BLAKE              30 OPERATIONS             40
+CLARK              10 OPERATIONS             40
+SCOTT              20 OPERATIONS             40
+KING               10 OPERATIONS             40
+TURNER             30 OPERATIONS             40
+ADAMS              20 OPERATIONS             40
+JAMES              30 OPERATIONS             40
+FORD               20 OPERATIONS             40
+MILLER             10 OPERATIONS             40
+
+select e.ename,e.deptno,d.dname,d.deptno from emp e inner join dept d on e.deptno>d.deptno;
+
+ENAME          DEPTNO DNAME              DEPTNO
+---------- ---------- -------------- ----------
+ALLEN              30 ACCOUNTING             10
+ALLEN              30 RESEARCH               20
+WARD               30 ACCOUNTING             10
+WARD               30 RESEARCH               20
+JONES              20 ACCOUNTING             10
+MARTIN             30 ACCOUNTING             10
+MARTIN             30 RESEARCH               20
+BLAKE              30 ACCOUNTING             10
+BLAKE              30 RESEARCH               20
+SCOTT              20 ACCOUNTING             10
+TURNER             30 ACCOUNTING             10
+TURNER             30 RESEARCH               20
+ADAMS              20 ACCOUNTING             10
+JAMES              30 ACCOUNTING             10
+JAMES              30 RESEARCH               20
+FORD               20 ACCOUNTING             10
+
+select e.ename,e.deptno,d.dname,d.deptno from emp e inner join dept d on e.deptno<d.deptno;
+ENAME          DEPTNO DNAME              DEPTNO
+---------- ---------- -------------- ----------
+ALLEN              30 OPERATIONS             40
+WARD               30 OPERATIONS             40
+JONES              20 SALES                  30
+JONES              20 OPERATIONS             40
+MARTIN             30 OPERATIONS             40
+BLAKE              30 OPERATIONS             40
+CLARK              10 RESEARCH               20
+CLARK              10 SALES                  30
+CLARK              10 OPERATIONS             40
+SCOTT              20 SALES                  30
+SCOTT              20 OPERATIONS             40
+KING               10 RESEARCH               20
+KING               10 SALES                  30
+KING               10 OPERATIONS             40
+TURNER             30 OPERATIONS             40
+ADAMS              20 SALES                  30
+ADAMS              20 OPERATIONS             40
+JAMES              30 OPERATIONS             40
+FORD               20 SALES                  30
+FORD               20 OPERATIONS             40
+MILLER             10 RESEARCH               20
+MILLER             10 SALES                  30
+MILLER             10 OPERATIONS             40
+
+Q1) Write a query to display all the details of the employee and display current working location
+select e.*,d.loc from emp e inner join dept d on e.deptno=d.deptno;
+EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO LOC
+----- ---------- --------- ---------- --------- ---------- ---------- ---------- -------------
+ 7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30 CHICAGO
+ 7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30 CHICAGO
+ 7566 JONES      MANAGER         7839 02-APR-81       2975                    20 DALLAS
+ 7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30 CHICAGO
+ 7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30 CHICAGO
+ 7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10 NEW YORK
+ 7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20 DALLAS
+ 7839 KING       PRESIDENT            17-NOV-81       5000                    10 NEW YORK
+ 7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30 CHICAGO
+ 7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20 DALLAS
+ 7900 JAMES      CLERK           7698 03-DEC-81        950                    30 CHICAGO
+ 7902 FORD       ANALYST         7566 03-DEC-81       3000                    20 DALLAS
+ 7934 MILLER     CLERK           7782 23-JAN-82       1300                    10 NEW YORK
+
+Q2)Write a query to display all the details of the student and current course details
+select s.* ,c.* from stud s join cou c on s.cid=c.cid;
+
+Q3)Write a query to display all the details of the allen and scott and display their department name and location
+select e.*,d.dname,d.loc from emp e join dept d on e.deptno=d.deptno where E.ename in ('ALLEN','SCOTT');
+EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO DNAME          LOC
+----- ---------- --------- ---------- --------- ---------- ---------- ---------- --------------
+ 7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30 SALES          CHICAGO
+ 7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20 RESEARCH       DALLAS
+
+Q4)Write a query to display emp name,salary of all the salesman and analyst who are working in a dept accounting,and sales ,display deptname and location
+select e.ename,e.sal ,d.dname,d.loc from emp e join dept d on e.deptno=d.deptno where e.job in ('SALESMAN','ANALYST') and d.dname in ('ACCOUNTING','SALES');
+ENAME             SAL DNAME          LOC
+---------- ---------- -------------- -------------
+ALLEN            1600 SALES          CHICAGO
+WARD             1250 SALES          CHICAGO
+MARTIN           1250 SALES          CHICAGO
+TURNER           1500 SALES          CHICAGO
+
+Q5))Write a query to display employee who are working in dept 10 and 30,and getting a salary of 1000-3000 working in a dept accouting and sales except location chicago and display deptname and location
+select e.*,d.dname,d.loc from emp e join dept d on e.deptno=d.deptno where e.deptno in (10,30) and sal between 1000 and 3000 and d.dname in ('ACCOUNTING','SALES') and d.loc<>'CHICAGO';
+
+EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO DNAME          LOC
+----- ---------- --------- ---------- --------- ---------- ---------- ---------- --------------
+ 7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10 ACCOUNTING     NEW YORK
+ 7934 MILLER     CLERK           7782 23-JAN-82       1300                    10 ACCOUNTING     NEW YORK
+
+Q6)Write a query to display  all the details of the student ram,display rest of the courses still be left to do
+select s.* ,c.cname from stud s join cou c  on s.cid<>c.cid  and s.sname='RAM';
+
+
+
