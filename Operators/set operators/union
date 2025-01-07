@@ -1,0 +1,60 @@
+If Datatypes are same for two columns  we can use union operator
+It is used to fetch the unique values from a table
+
+select deptno from emp union
+select deptno from dept;
+
+DEPTNO
+-----
+   10
+   20
+   30
+   40
+
+ select empno from emp union 
+ select deptno from dept;
+
+ EMPNO
+------
+    10
+    20
+    30
+    40
+  7499
+  7521
+  7566
+  7654
+  7698
+  7782
+  7788
+  7839
+  7844
+  7876
+  7900
+  7902
+  7934
+
+select deptno from dept union select ename from emp;
+select deptno from dept union select ename from emp
+expression must have same datatype as corresponding expression
+
+select dname from dept union select ename from emp;
+DNAME
+--------------
+ACCOUNTING
+ADAMS
+ALLEN
+BLAKE
+CLARK
+FORD
+JAMES
+JONES
+KING
+MARTIN
+MILLER
+OPERATIONS
+RESEARCH
+SALES
+SCOTT
+TURNER
+WARD
