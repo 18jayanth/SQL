@@ -1,0 +1,53 @@
+If Datatypes are same for two columns  we can use union all operator
+It is used to fetch all the values
+
+
+select deptno from dept union all select deptno from emp;
+
+DEPTNO
+-----
+   10
+   20
+   30
+   40
+   30
+   30
+   20
+   30
+   30
+   10
+   20
+   10
+   30
+   20
+   30
+   20
+   10
+
+
+select deptno from dept union all select ename from emp;
+select deptno from dept union all select ename from emp;
+
+expression must have same datatype as corresponding expression
+
+
+select dname from dept union all select ename from emp;
+DNAME
+--------------
+ACCOUNTING
+RESEARCH
+SALES
+OPERATIONS
+ALLEN
+WARD
+JONES
+MARTIN
+BLAKE
+CLARK
+SCOTT
+KING
+TURNER
+ADAMS
+JAMES
+FORD
+MILLER
