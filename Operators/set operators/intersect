@@ -1,0 +1,16 @@
+If Datatypes are same for two columns  we can use intersect operator
+It is used to fetch only common data
+
+select deptno from dept intersect 
+select empno from emp;
+no rows selected
+
+select deptno from dept intersect 
+select deptno  from emp;
+
+ DEPTNO
+-------
+     10
+     20
+     30
+
