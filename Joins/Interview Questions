@@ -13,5 +13,25 @@ EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
  7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
 
 Q3)Write a Query to display working location of employee who is getting 8th highest salary
-select loc from dept=(
+select loc from dept  where deptno in (
+
+select deptno from emp where sal=(
+select * from(
+select * from(
+select distinct sal from emp order by sal desc)
+where rownum<=8 order by sal)
+where rownum=1));
+
+
+
+
+
+
+Q4)Write  a query to find nth record in a table
+select * from (
+select * from emp  where rownum<=n order by rownum desc) where rownum=1;
+
+
+
+
 
