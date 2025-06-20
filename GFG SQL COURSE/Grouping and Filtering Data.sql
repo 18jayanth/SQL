@@ -1,12 +1,15 @@
 
-/*Notes
+Notes
 Grouping and Filtering Data
-Grouping data in SQL allows you to aggregate data based on one or more columns, making it possible to calculate summary statistics, such as counts, sums, averages, and more. The GROUP BY clause is used for this purpose.
+Grouping data in SQL allows you to aggregate data based on one or more columns, making it possible to calculate summary statistics, such as counts, 
+sums, averages, and more. The GROUP BY clause is used for this purpose.
 
-Filtering data involves selecting specific rows that meet certain criteria. This can be done using the WHERE clause before aggregation or the HAVING clause after aggregation.
+Filtering data involves selecting specific rows that meet certain criteria. This can be done using the WHERE clause before aggregation or the HAVING
+clause after aggregation.
 
 Grouping Data
-The GROUP BY clause groups rows that have the same values in specified columns into summary rows. It is often used in conjunction with aggregate functions like COUNT, SUM, AVG, MAX, and MIN.
+The GROUP BY clause groups rows that have the same values in specified columns into summary rows. It is often used in conjunction with 
+aggregate functions like COUNT, SUM, AVG, MAX, and MIN.
 
 Syntax:
 SELECT column1, column2, aggregate_function(column3)
@@ -17,67 +20,74 @@ Dataset Overview: Products Table
 Assume we have a products table with columns like product_name, brand_name, brand_tag, product_tag, rating, rating_count, marked_price, discounted_price, and discount_percent.
 
 Using the Database and Viewing the Table
-First, ensure you're using the correct database and view the data in the products table:
+First, ensure youre using the correct database and view the data in the products table:
 
 USE gfg;
 SELECT * FROM products;
-Grouping Data Examples
-Finding Unique Brand Names
+--Grouping Data Examples
+--Finding Unique Brand Names
 SELECT DISTINCT brand_name FROM products;
-This query retrieves all unique brand names from the products table.
+--This query retrieves all unique brand names from the products table.
 
-Counting Unique Brands
+--Counting Unique Brands
 SELECT COUNT(DISTINCT brand_name) FROM products;
-This query returns the total number of unique brands.
+--This query returns the total number of unique brands.
 
-Counting Products in Each Brand
+--Counting Products in Each Brand
 SELECT brand_tag, COUNT(product_tag) FROM products GROUP BY brand_tag;
-This query counts the number of products for each brand.
+--This query counts the number of products for each brand.
 
-Top 5 Brands with the Most Products
+
+--Top 5 Brands with the Most Products
 SELECT brand_tag, COUNT(product_tag) AS 'products'
 FROM products
 GROUP BY brand_tag
 ORDER BY products DESC
 LIMIT 5;
-This query lists the top 5 brands with the most products in their inventory.
+--This query lists the top 5 brands with the most products in their inventory.
 
-Top 5 Brands with the Most Products Sold
+*/
+--Top 5 Brands with the Most Products Sold
 SELECT brand_tag, SUM(rating_count) AS 'products_sold'
 FROM products
 GROUP BY brand_tag
 ORDER BY products_sold DESC
 LIMIT 5;
-This query lists the top 5 brands that have sold the most products.
+--This query lists the top 5 brands that have sold the most products.
 
-Top 5 Most Expensive Brands Based on Discounted Price
+
+--Top 5 Most Expensive Brands Based on Discounted Price
 SELECT brand_tag, ROUND(AVG(discounted_price)) AS 'average_price'
 FROM products
 GROUP BY brand_tag
 ORDER BY average_price DESC
 LIMIT 5;
-This query lists the top 5 most expensive brands based on the average discounted price of their products.
+--This query lists the top 5 most expensive brands based on the average discounted price of their products.
 
-Top 5 Least Expensive Brands Based on Discounted Price
+
+--Top 5 Least Expensive Brands Based on Discounted Price
 SELECT brand_tag, ROUND(AVG(discounted_price)) AS 'average_price'
 FROM products
 GROUP BY brand_tag
 ORDER BY average_price ASC
 LIMIT 5;
-This query lists the top 5 least expensive brands based on the average discounted price of their products.
+--This query lists the top 5 least expensive brands based on the average discounted price of their products.
+
 
 Filtering Data
 Filtering data is essential for narrowing down the dataset to include only relevant rows.
 
 Using the WHERE Clause:
 The WHERE clause is used to filter rows before any grouping or aggregation is performed.
+       
 
 -- Select sales data for a specific product
 SELECT product_id, quantity, price
 FROM sales
 WHERE product_id = 101;
 Using the HAVING Clause:
-The HAVING clause is used to filter groups after the GROUP BY operation. It is similar to the WHERE clause but is applied to aggregated data.
+--The HAVING clause is used to filter groups after the GROUP BY operation. It is similar to the WHERE clause but is applied to aggregated data.
+
 
 -- Calculate the total sales quantity for each product, and show only those with a total quantity greater than 100
 SELECT product_id, SUM(quantity) AS total_quantity
@@ -90,28 +100,30 @@ FROM products
 GROUP BY product_tag
 ORDER BY product_sold DESC
 LIMIT 10;
-This query lists the top 10 best-selling product categories based on the total number of ratings.
+--This query lists the top 10 best-selling product categories based on the total number of ratings.
 
-Top 5 Brands Offering Maximum Discount
+--Top 5 Brands Offering Maximum Discount
 SELECT brand_tag, AVG(discount_percent) AS 'avg_discount'
 FROM products
 GROUP BY brand_tag
 ORDER BY avg_discount DESC
 LIMIT 5;
-This query lists the top 5 brands offering the highest average discount.
+--This query lists the top 5 brands offering the highest average discount.
 
-Top 5 Most Expensive Product Categories
+
+--Top 5 Most Expensive Product Categories
 SELECT product_tag, AVG(discounted_price) AS 'avg_price'
 FROM products
 GROUP BY product_tag
 ORDER BY avg_price DESC
 LIMIT 5;
-This query lists the top 5 most expensive product categories based on the average discounted price.
+--This query lists the top 5 most expensive product categories based on the average discounted price.
 
-Combining Grouping and Filtering
-By combining WHERE, GROUP BY, and HAVING clauses, you can perform complex queries that aggregate and filter data simultaneously.
 
-Brand Report Card
+--Combining Grouping and Filtering
+--By combining WHERE, GROUP BY, and HAVING clauses, you can perform complex queries that aggregate and filter data simultaneously.
+
+--Brand Report Card
 SELECT brand_tag, 
        SUM(rating_count) AS 'people_rated',
        MIN(marked_price) AS 'min_mar_price',
@@ -119,9 +131,9 @@ SELECT brand_tag,
        MAX(marked_price) AS 'max_mar_price'
 FROM products
 GROUP BY brand_tag;
-This query provides a summary report for each brand, including the total number of ratings, minimum, average, and maximum marked price.
+--This query provides a summary report for each brand, including the total number of ratings, minimum, average, and maximum marked price.
 
-*/
+
 --Most Popular Product Category for Each Brand
 SELECT brand_tag, product_tag, SUM(rating_count) AS 'people_rated'
 FROM products
